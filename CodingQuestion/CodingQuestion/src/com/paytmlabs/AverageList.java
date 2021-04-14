@@ -8,7 +8,12 @@ package com.paytmlabs;
  *
  */
 public interface AverageList {
-	public void add(Integer e);
+	
+	public boolean add(Integer e);
+
 	public Integer get(int index);
-	public double average(int lastN) throws Exception;
+
+	public int size();
+
+	public double average(int lastN);
 }

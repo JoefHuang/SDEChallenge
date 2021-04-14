@@ -31,7 +31,7 @@ public class AverageListTest {
 		al.add(1);
 		al.add(2);
 		al.add(3);
-		
+
 		assertTrue("testAverage failed: " + al.average(1), al.average(1) == 3);
 		assertTrue("testAverage failed: " + al.average(2), al.average(2) == 2.5);
 		assertTrue("testAverage failed: " + al.average(3), al.average(3) == 2);

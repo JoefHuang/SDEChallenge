@@ -11,7 +11,7 @@ import java.util.List;
  *
  */
 public class AverageListImpl implements AverageList {
-	
+
 	private List<Integer> list;
 
 	public AverageListImpl() {
@@ -23,8 +23,8 @@ public class AverageListImpl implements AverageList {
 	}
 
 	@Override
-	public void add(Integer e) {
-		list.add(e);
+	public boolean add(Integer e) {
+		return list.add(e);
 	}
 
 	@Override
@@ -33,14 +33,21 @@ public class AverageListImpl implements AverageList {
 	}
 
 	@Override
-	public double average(int lastN) throws Exception {
-		if (lastN > list.size() || lastN <= 0)
-			throw new Exception("Incorrect parameter");
+	public int size() {
+		return list.size();
+	}
+
+	@Override
+	public double average(int lastN) {
+		if (lastN > size() || lastN <= 0)
+			throw new IllegalArgumentException();
+		
 		int total = 0;
-		for (int i=list.size()-1;i>=list.size()-lastN;i--) {
-			total += list.get(i);
+		for (int i = size() - 1; i >= size() - lastN; i--) {
+			total += get(i);
 		}
-		return (double)total/lastN;
+		
+		return (double) total / lastN;
 	}
 
 }
